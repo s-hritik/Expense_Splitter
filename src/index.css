@@ -28,8 +28,8 @@ html {
 
 /* Selection color */
 ::selection {
-  background-color: #233554;
-  color: #CCD6F6;
+  background-color: #1c4da1;
+  color: #cfd6ed;
 }
 
 /* Smooth transitions */

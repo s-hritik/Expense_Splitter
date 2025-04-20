@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { X, Mail, Lock, User } from 'lucide-react';
+import { X, Mail, Lock} from 'lucide-react';
 import toast from 'react-hot-toast';
 import { supabase } from '../lib/supabase';
 
@@ -53,18 +53,18 @@ const SignupModal = ({ onClose, onSwitchToSignIn }: SignupModalProps) => {
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4">
+    <div className="fixed inset-0 bg-white bg-opacity-50 flex items-center justify-center p-4">
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 0.9 }}
-        className="bg-white rounded-lg shadow-xl w-full max-w-md"
+        className="bg-gray-800 rounded-lg shadow-xl w-full max-w-md"
       >
         <div className="flex justify-between items-center p-6 border-b border-gray-100">
-          <h2 className="text-xl font-semibold text-gray-900">Create Account</h2>
+          <h2 className="text-xl font-semibold text-white">Create Account</h2>
           <button
             onClick={onClose}
-            className="text-gray-400 hover:text-gray-500 transition-colors"
+            className="text-white"
           >
             <X size={24} />
           </button>
@@ -72,7 +72,7 @@ const SignupModal = ({ onClose, onSwitchToSignIn }: SignupModalProps) => {
 
         <form onSubmit={handleSubmit} className="p-6 space-y-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-white mb-1">
               Email
             </label>
             <div className="relative">
@@ -81,14 +81,15 @@ const SignupModal = ({ onClose, onSwitchToSignIn }: SignupModalProps) => {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-600 focus:border-emerald-800"
+                className="w-full pl-10 pr-3 py-2 bg-white 
+                border border-gray-300 rounded-lg"
                 placeholder="you@example.com"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-white mb-1">
               Password
             </label>
             <div className="relative">
@@ -97,14 +98,14 @@ const SignupModal = ({ onClose, onSwitchToSignIn }: SignupModalProps) => {
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-600 focus:border-emerald-800"
+                className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg bg-white"
                 placeholder="••••••••"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-white mb-1">
               Confirm Password
             </label>
             <div className="relative">
@@ -113,12 +114,12 @@ const SignupModal = ({ onClose, onSwitchToSignIn }: SignupModalProps) => {
                 type="password"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
-                className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-600 focus:border-emerald-800"
+                className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg bg-white"
                 placeholder="••••••••"
               />
             </div>
           </div>
-
+            <br />
           <button
             type="submit"
             disabled={loading}
@@ -127,12 +128,12 @@ const SignupModal = ({ onClose, onSwitchToSignIn }: SignupModalProps) => {
             {loading ? 'Creating account...' : 'Sign Up'}
           </button>
 
-          <p className="text-center text-sm text-gray-600">
+          <p className="text-center text-sm text-white">
             Already have an account?{' '}
             <button
               type="button"
               onClick={onSwitchToSignIn}
-              className="text-emerald-600 hover:text-emerald-800 font-medium"
+              className="text-emerald-500 hover:text-emerald-400 font-medium"
             >
               Sign In
             </button>

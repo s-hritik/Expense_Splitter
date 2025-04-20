@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Toaster } from 'react-hot-toast';
 import Navbar from './components/Navbar';
 import ExpenseList from './components/ExpenseList';
@@ -41,13 +41,13 @@ function App() {
   }, [selectedGroup]);
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-800">
       <Navbar user={user} />
       <Toaster position="top-right" />
       
       <main className="container mx-auto px-4 py-8">
         <div className="flex justify-between items-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">SplitWise</h1>
+          <h1 className="text-3xl font-bold text-white">SplitWise</h1>
           <div className="flex gap-4">
             <motion.button
               whileHover={{ scale: 1.05 }}

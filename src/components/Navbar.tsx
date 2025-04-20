@@ -28,7 +28,7 @@ const Navbar = ({ user }: NavbarProps) => {
 
   return (
     <>
-      <nav className="bg-white shadow-sm">
+      <nav className="bg-gray-800 shadow-sm">
         <div className="container mx-auto px-4 py-4">
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-2">
@@ -40,7 +40,7 @@ const Navbar = ({ user }: NavbarProps) => {
               <img src={Money} alt="logo" width="50" />
             
               </motion.div>
-              <span className="text-xl font-bold text-gray-900">Split</span>
+              <span className="text-xl font-bold text-white">SPLIT</span>
             </div>
 
             <motion.button
@@ -89,6 +89,7 @@ const Navbar = ({ user }: NavbarProps) => {
           />
         )}
       </AnimatePresence>
+      <hr />
     </>
   );
 };

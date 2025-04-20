@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { motion } from 'framer-motion';
 import { format } from 'date-fns';
 import { useStore } from '../store/useStore';
@@ -21,7 +21,7 @@ const ExpenseList = () => {
   return (
     <div className="space-y-4">
       {selectedGroup && (
-        <h2 className="text-xl font-semibold text-gray-900 mb-4">
+        <h2 className="text-xl font-semibold text-white mb-4">
           Expenses for {selectedGroup.name}
         </h2>
       )}
@@ -36,26 +36,29 @@ const ExpenseList = () => {
         >
           <div className="flex justify-between items-start">
             <div>
-              <h3 className="text-lg font-semibold text-gray-900">{expense.title}</h3>
-              <p className="text-sm text-gray-500">
+              <h3 className="text-lg font-bold text-gray-900">{expense.title}</h3>
+              <br />
+              <p className="text-sm text-gray-700">
                 Paid by {expense.payer} • {format(new Date(expense.date), 'MMM d, yyyy')}
               </p>
             </div>
-            <div className="text-xl font-bold text-red-800">
+            <div className="text-xl font-bold text-rose-800">
             ₹{expense.amount.toFixed(2)}
             </div>
           </div>
-          
+          <hr />
+          <br />
           <div className="mt-4">
             <h4 className="text-sm font-medium text-gray-700 mb-2">Split Details:</h4>
+            
             <div className="space-y-2">
               {calculateSplits(expense).map((split, i) => (
                 <div key={i} className="flex justify-between items-center">
                   <span className="text-sm text-gray-600">{split.name}</span>
                   <span className={`text-sm font-medium ${
-                    split.amount < 0 ? 'text-red-700' : 'text-green-600'
+                    split.amount < 0 ? 'text-cyan-950' : 'text-cyan-950'
                   }`}>
-                    {split.amount < 0 ? 'gets back' : 'owes'} ₹{Math.abs(split.amount).toFixed(2)}
+                    {split.amount < 0 ? 'Gets Back' : 'owes'} ₹{Math.abs(split.amount).toFixed(2)}
                   </span>
                 </div>
               ))}
@@ -66,7 +69,7 @@ const ExpenseList = () => {
 
       {expenses.length === 0 && (
         <div className="text-center py-12">
-          <p className="text-gray-500">
+          <p className="text-white">
             {selectedGroup 
               ? 'No expenses yet in this group. Add one to get started!'
               : 'Select a group to view expenses'}
